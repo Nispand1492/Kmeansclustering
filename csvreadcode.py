@@ -4,17 +4,16 @@ import csv
 
 
 def initlist():
-    csvfile = open('nispand.csv','rb')
+    csvfile = open('all_month.csv','rb')
     csvreader = csv.reader(csvfile)
     csvreader.next()
     csvreader.next()
     count = 0
-    procat = []
-    prosubcat = []
+    latti = []
+    longi = []
     for row in csvreader :
-        if row[6] not in procat:
-            procat.append(row[6])
-        if row[7] not in prosubcat:
-            prosubcat.append(row[7])
-    return procat,prosubcat
+        print "lat ::" + row[1]
+        print "long :: " + row[2]
+    return "done"
 
+initlist()

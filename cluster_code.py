@@ -3,25 +3,28 @@ __author__ = 'Nispand'
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as colors
 from csvreadcode import initlist
 from matplotlib import style
 style.use("ggplot")
 from sklearn.cluster import KMeans
-
-list1 = []
-list2 = []
-list1,list2 = initlist()
+nof = raw_input("Enter number of clusters::")
+#list1 = []
+#list2 = []
+#list1,list2 = initlist()
 xcord = []
 ycord = []
-csvfile = open('nispand.csv','rb')
+csvfile = open('all_month.csv','rb')
 csvreader = csv.reader(csvfile)
 csvreader.next()
 csvreader.next()
 i = 0
 j= 0
 for row in csvreader :
-        xcord.append(list1.index(row[6]))
-        ycord.append(list2.index(row[7]))
+        print "latt :: " + row[1]
+        xcord.append(row[1])
+        print "long :: " + row[2]
+        ycord.append(row[2])
 
 tot = []
 for x in range(0,xcord.__len__()):
@@ -33,7 +36,7 @@ for x in range(0,xcord.__len__()):
 
 X = np.array(tot)
 print type(X)
-kmeans = KMeans(n_clusters=2)
+kmeans = KMeans(n_clusters=int(nof))
 kmeans.fit(X)
 centroids = kmeans.cluster_centers_
 labels = kmeans.labels_
@@ -41,7 +44,7 @@ labels = kmeans.labels_
 print(centroids)
 print(labels)
 
-colors = ["g.","r."]
+colors = ["g.","r.",".c"]
 
 for i in range(len(X)):
         print("coordinate:",X[i],"label:",labels[i])
