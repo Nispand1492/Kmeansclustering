@@ -36,12 +36,12 @@ kmeans.fit(X)
 centroids = kmeans.cluster_centers_
 labels = kmeans.labels_
 cnt = {}
-print(centroids)
-print(labels)
+#print(centroids)
+#print(labels)
 colors = ["g.","r.","c.","b.","m.","y.","k.","w."]
 inicnt = 0
 for i in range(len(X)):
-        print("coordinate:",X[i],"label:",labels[i])
+        #print("coordinate:",X[i],"label:",labels[i])
         clr = str(colors[labels[i]])
         plt.plot(X[i][0],X[i][1],clr,markersize = 10)
         if clr not in cnt:
