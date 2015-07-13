@@ -24,8 +24,8 @@ style.use("ggplot")
 from sklearn.cluster import KMeans
 
 
-def clusterplot():
-        nof = raw_input("Enter number of clusters::")
+def clusterplot(nof):
+        nof = int(nof)
         xcord = []
         ycord = []
         csvfile = open('all_month.csv','rb')
@@ -155,5 +155,4 @@ def for_bargraph(x_param,y_param,nof):
         for key in cnt:
                 data[i] = cnt[key]
                 keycnt = keycnt + 1
-
         return cnt
